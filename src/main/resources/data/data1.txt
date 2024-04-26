@@ -1,0 +1,4 @@
+# Login\tSurname Name Patronymic\tLoginDate\tApplicationName
+LEOSAM	Semirenko Leonid Nikolaevich	2024-04-24 12:30:05	web
+LEOSAM	Semirenko Leonid Nikolaevich	2024-04-24 12:30:05	mobile
+LEOSAM	semirenko leonid nikolaevich	2024-04-24 12:30:05 phone

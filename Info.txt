@@ -1,0 +1,13 @@
+Что непонятно
+
+Есть две простых сущности - User(@Id Integer id, String userId, String userName),
+и Login (@Id Integer id, Date accessDate, Integer userId (должно ссылаться на User.id), String application)
+Помечены @Entity. Одна @Table("users"), другая @Table("logins")
+
+Есть ещё одна сущность - LogEntry(User user, Login login). У этой сущности нет таблицы. Наверное, она даже и не нужна.
+
+У сущностей есть репозитории @Repository interface UserRepository extends JpaRepository<User, Integer> с методом
+    @Query(value = "select u from users u where u.UserName = :userId", nativeQuery = true) // Здесь users было покрашено красным - Unable to resolve table users. Поправил Data Source.
+    Optional<User> findByUserId(String userId);
+и
+@Repository interface LoginRepository extends JpaRepository<Login, Integer>. Пока пустой.
