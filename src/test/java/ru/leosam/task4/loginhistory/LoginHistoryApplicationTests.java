@@ -22,13 +22,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 //@Component
 class LoginHistoryApplicationTests {
-    @Autowired
     private Login login;
-
     @Autowired
+    public void setLogin(@Autowired Login login) { this.login = login; }
     private User user;
     @Autowired
-    CheckerExecutor checkerExecutor;
+    public void setUser(@Autowired User user) { this.user = user; }
+    private CheckerExecutor checkerExecutor;
+    public void setCheckerExecutor(CheckerExecutor checkerExecutor) { this.checkerExecutor = checkerExecutor; }
 
     @Test
     public void contextLoads() throws Exception {
@@ -77,12 +78,12 @@ class LoginHistoryApplicationTests {
 
     @Test
     void checkMainProcess() {
-        StandardServiceRegistry standardRegistry
+        /*StandardServiceRegistry standardRegistry
                 = new StandardServiceRegistryBuilder()
                 .configure()
                 .build();
         MetadataSources sources = new MetadataSources(standardRegistry);
-        sources.addAnnotatedClass(LogEntryService.class);
+        sources.addAnnotatedClass(LogEntryService.class);*/
         LogEntryService srv = new LogEntryImpl();
         srv.addEntry("LeoSam\tSemirenko leonid nikolaevich\t2024-04-24 12:30:05\tphone");
     }

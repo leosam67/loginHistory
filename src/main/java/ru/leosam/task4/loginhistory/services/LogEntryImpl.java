@@ -20,6 +20,7 @@ public class LogEntryImpl implements LogEntryService {
     private AnnotationConfigApplicationContext context;
     @Autowired
     public void setAppContext(@Autowired AnnotationConfigApplicationContext ctx) {
+        System.out.println("+ LogEntryService: context is autowired");
         context = ctx;
     }
     @Autowired

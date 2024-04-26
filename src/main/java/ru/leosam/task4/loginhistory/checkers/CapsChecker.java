@@ -18,7 +18,4 @@ public class CapsChecker implements UserCheckerInt {
         user.setUserName(sb.toString());
         return null;
     }
-    public CapsChecker() {
-        System.out.println("++++++++++ CapsChecker");
-    }
 }

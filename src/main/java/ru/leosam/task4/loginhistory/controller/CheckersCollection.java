@@ -9,11 +9,11 @@ import ru.leosam.task4.loginhistory.checkers.LoginCheckerInt;
 import ru.leosam.task4.loginhistory.checkers.UserChecker;
 import ru.leosam.task4.loginhistory.checkers.UserCheckerInt;
 
-@Component
-@ComponentScan("ru.leosam.task4.loginhistory.checkers")
+// @Component
+// @ComponentScan("ru.leosam.task4.loginhistory.checkers")
 public class CheckersCollection implements BeanPostProcessor {
     private CheckerExecutor executor;
-    @Autowired
+    // @Autowired
     public void setExecutor(CheckerExecutor executor) {
         System.out.println("+ CheckerExecutor is set to " + executor.getClass().getName());
         this.executor = executor;
