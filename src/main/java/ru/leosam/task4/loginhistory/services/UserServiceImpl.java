@@ -1,7 +1,6 @@
 package ru.leosam.task4.loginhistory.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import ru.leosam.task4.loginhistory.entity.User;
 import ru.leosam.task4.loginhistory.entity.UserRepository;

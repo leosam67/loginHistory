@@ -18,6 +18,7 @@ public class CheckerExecutorImpl implements CheckerExecutor {
         this.loginCheckers = loginCheckers;
         System.out.println("+ CheckerExecutorImpl(" + userCheckers + ", " + loginCheckers);
     }
+    /*
     @Override
     public void addUserChecker(UserCheckerInt chk) {
         System.out.println("+ Added checker: " + chk.getClass().getName());
@@ -28,6 +29,7 @@ public class CheckerExecutorImpl implements CheckerExecutor {
         System.out.println("+ Added checker: " + chk.getClass().getName());
         loginCheckers.add(chk);
     }
+    */
     @Override
     public String check(User user, Login login) {
         StringBuilder sb = new StringBuilder();

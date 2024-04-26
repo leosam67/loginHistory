@@ -18,6 +18,7 @@ public class CheckersCollection implements BeanPostProcessor {
         System.out.println("+ CheckerExecutor is set to " + executor.getClass().getName());
         this.executor = executor;
     }
+    /*
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) {
         // System.out.println("+++ " + beanName);
@@ -31,4 +32,5 @@ public class CheckersCollection implements BeanPostProcessor {
         }
         return bean;
     }
+    */
 }

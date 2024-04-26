@@ -13,6 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 // @NoArgsConstructor
 public class Login {
+        private static int cnt = 0;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
@@ -29,9 +30,6 @@ public class Login {
             this.application = application;
         }
         public Login() {
-            System.out.println("+ ! Login is created");
-            for(StackTraceElement el : Thread.currentThread().getStackTrace()) {
-                System.out.println("\t" + el.toString());
-            }
+            System.out.println("+ ! Login is created: " + ++cnt);
         }
 }

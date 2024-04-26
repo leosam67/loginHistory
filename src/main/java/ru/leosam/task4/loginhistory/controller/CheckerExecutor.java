@@ -8,8 +8,9 @@ import ru.leosam.task4.loginhistory.entity.User;
 
 public interface CheckerExecutor {
     String check(User user, Login login);
-
+/*
     void addUserChecker(UserCheckerInt chk);
 
     void addLoginChecker(LoginCheckerInt chk);
+ */
 }

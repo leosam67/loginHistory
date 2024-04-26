@@ -1,6 +1,8 @@
+
 package ru.leosam.task4.loginhistory.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 import ru.leosam.task4.loginhistory.checkers.CheckerException;
 import ru.leosam.task4.loginhistory.controller.CheckerExecutor;
@@ -15,6 +17,11 @@ public class LogEntryImpl implements LogEntryService {
     public static String DELIMITER = "\t";
     private static final DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private CheckerExecutor checkers;
+    private AnnotationConfigApplicationContext context;
+    @Autowired
+    public void setAppContext(@Autowired AnnotationConfigApplicationContext ctx) {
+        context = ctx;
+    }
     @Autowired
     public void setCheckers(CheckerExecutor chk) {
         System.out.println("+ Set checkers to " + chk.getClass().getName());
@@ -25,8 +32,8 @@ public class LogEntryImpl implements LogEntryService {
         // Login\tSurname Name Patronymic\tLoginDate\tApplicationName
         if(line == null) return;
         if(line.isEmpty()) return;
-        User user = new User();
-        Login login = new Login();
+        User user = context.getBean(User.class);
+        Login login = context.getBean(Login.class);
         int entryPart = 0;
         for(String part : line.split(DELIMITER)) {
             switch(entryPart++) {
