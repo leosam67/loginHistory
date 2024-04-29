@@ -2,6 +2,7 @@ package ru.leosam.task4.loginhistory.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -12,10 +13,11 @@ import org.springframework.stereotype.Component;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Integer id;
-    @Column(name = "UserName")
+    @Column(name = "user_name")
     String userId;
-    @Column(name = "FIO")
+    @Column(name = "fio")
     String userName;
 
     public User(String userId, String userName) {

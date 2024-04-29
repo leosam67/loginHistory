@@ -8,15 +8,14 @@ import ru.leosam.task4.loginhistory.checkers.*;
 import ru.leosam.task4.loginhistory.entity.Login;
 import ru.leosam.task4.loginhistory.entity.User;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
 @Component
 public class UnitTests {
-    @Autowired
-    private Login login;
-
-    @Autowired
-    private User user;
+    @Autowired private Login login;
+    @Autowired private User user;
     @BeforeEach
     public void initLogEntry() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(UnitTests.class);

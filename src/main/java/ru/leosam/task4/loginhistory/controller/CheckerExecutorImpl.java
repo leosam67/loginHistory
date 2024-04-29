@@ -16,46 +16,33 @@ public class CheckerExecutorImpl implements CheckerExecutor {
     public CheckerExecutorImpl(@Autowired Set<UserCheckerInt> userCheckers, @Autowired Set<LoginCheckerInt> loginCheckers) {
         this.userCheckers = userCheckers;
         this.loginCheckers = loginCheckers;
-        System.out.println("+ CheckerExecutorImpl(" + userCheckers + ", " + loginCheckers);
     }
-    /*
-    @Override
-    public void addUserChecker(UserCheckerInt chk) {
-        System.out.println("+ Added checker: " + chk.getClass().getName());
-        userCheckers.add(chk);
-    }
-    @Override
-    public void addLoginChecker(LoginCheckerInt chk) {
-        System.out.println("+ Added checker: " + chk.getClass().getName());
-        loginCheckers.add(chk);
-    }
-    */
     @Override
     public String check(User user, Login login) {
         StringBuilder sb = new StringBuilder();
         for(UserCheckerInt chk : userCheckers) {
-            System.out.println("+ Checking " + chk.getClass().getName());
             String result = chk.checkData(user);
             if(result != null) {
                 if(!sb.isEmpty()) sb.append('\n');
-                sb.append(formatDateErrorMessage(result, user, login));
+                sb.append(result);
             }
         }
         for(LoginCheckerInt chk : loginCheckers) {
-            System.out.println("+ Checking " + chk.getClass().getName());
             String result = chk.checkData(login);
             if(result != null) {
-                if(!sb.isEmpty()) sb.append('\n');
-                sb.append(formatDateErrorMessage(result, user, login));
+                if(!sb.isEmpty()) sb.append(", ");
+                sb.append(result);
             }
         }
-        return sb.toString();
+        if(!sb.isEmpty()) {
+            sb.append(formatDateErrorMessage(user, login));
+            return sb.toString();
+        } else return null;
     }
-    private String formatDateErrorMessage(String msg, User user, Login login) {
-        return System.out.format("%s for %s, named %s, logged to %s",
-                msg,
+    private String formatDateErrorMessage(User user, Login login) {
+        return String.format(" for %s, named %s, logged to %s",
                 user.getUserId(),
                 user.getUserName(),
-                login.getApplication()).toString();
+                login.getApplication());
     }
 }
